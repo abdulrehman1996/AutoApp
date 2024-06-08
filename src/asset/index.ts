@@ -1,0 +1,9 @@
+export const USER = require('./user.png');
+export const CHATICON = require("./chatIcon.png")
+export const GENIE = require("./genie.png")
+export const CARWASH = require("./carwash.png")
+export const CREVAISON = require("./crevaison.png")
+export const GAS = require("./gas.png")
+export const PLOMBIER = require("./plumber.png")
+export const MENAGE = require("./menage.png")
+export const JUMP = require("./jumpstart.png")
