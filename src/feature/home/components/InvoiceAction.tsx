@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     paddingHorizontal:8,
     marginHorizontal:"5%",
     borderRadius:10 ,  
-    borderWidth:0.5,
-    borderColor:"rgba(0,0,0,0.1)"
+    ...commonStyles.shadow_2,
+    backgroundColor:'white'
   },  
   row: {
     ...commonStyles.horizontalView,

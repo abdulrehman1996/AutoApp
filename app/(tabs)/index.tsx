@@ -1,86 +1,126 @@
 import { USER } from "@/src/asset";
-import { BellIcon, MessageIcon, Text } from "@/src/components";
+import { BellIcon, MessageIcon, RNModal, Text } from "@/src/components";
 import GradientButton from "@/src/components/reusable/GradientButton";
 import { white } from "@/src/config/constants/Colors";
 import { FONT, commonStyles } from "@/src/config/constants/constants";
 import { JAWAZLOGO, LEFTCAR } from "@/src/feature/home/assets";
-import { Appointment, Heading, InfoCard, InvoiceAction } from "@/src/feature/home/components";
+import {
+  Appointment,
+  Heading,
+  InfoCard,
+  InvoiceAction,
+  LicenceModal,
+} from "@/src/feature/home/components";
 import { licenceBlur, users } from "@/src/feature/home/dummyData/data";
 import { hp, wp } from "@/src/utils/Dimension";
-import { Feather } from "@expo/vector-icons";
+import { Entypo, Feather } from "@expo/vector-icons";
 import { useTheme } from "@react-navigation/native";
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { Image, StyleSheet, Platform, View, ScrollView } from "react-native";
+import { useState } from "react";
+import {
+  Image,
+  StyleSheet,
+  Platform,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 
 export default function HomeScreen() {
   const { colors } = useTheme();
   const styles = Styles(colors);
+  const router = useRouter();
+  const [licenseModal, setLicenseModal] = useState(false);
+
   return (
     <View style={styles.container}>
-      <StatusBar translucent={true}  />
+      <StatusBar translucent={true} />
       <ScrollView>
-      <View style={styles.header}>
-        <MessageIcon theme />
-        <BellIcon theme />
-      </View>
+        <View style={styles.header}>
+          <MessageIcon theme />
+          <BellIcon theme />
+        </View>
 
-      <Image source={LEFTCAR} style={styles.carImage} />
+        <Image source={LEFTCAR} style={styles.carImage} />
 
-      <View style={styles.userSection}>
-        <Image source={USER} style={styles.userProfile} />
+        <View style={styles.userSection}>
+          <Image source={USER} style={styles.userProfile} />
 
-        <Text style={styles.userName}>Saif Din</Text>
+          <Text style={styles.userName}>Saif Din</Text>
 
-        <View style={styles.horizontalView}>
-          <Text style={styles.totalDhs}>5,394 Dhs</Text>
-          <View style={styles.plusIcon}>
-            <Feather name="plus" color={colors.primary} size={20} />
+          <View style={styles.horizontalView}>
+            <Text style={styles.totalDhs}>5,394 Dhs</Text>
+            <View style={styles.plusIcon}>
+              <Feather name="plus" color={colors.primary} size={20} />
+            </View>
           </View>
+
+          <InvoiceAction />
+
+          <Appointment date="Wed, 24 Junuary" userProfile={USER} />
+
+          <View style={styles.cardView}>
+            <InfoCard
+              image={JAWAZLOGO}
+              info="0 Dhs"
+              onPress={() => router.navigate("screens/jawazbalance")}
+            />
+            <InfoCard title="Diesel" info="12.4 Dhs/L" />
+          </View>
+
+          <View style={styles.cardView}>
+            <InfoCard title="Distance" info="0 KM" />
+            <InfoCard title="Expenses" info="1,200 Dhs" />
+          </View>
+
+          <Heading title="My network" style={{ marginVertical: 10 }} />
+
+          <ScrollView horizontal style={{ marginLeft: "5%" }}>
+            {users?.map((item, index) => {
+              return (
+                <Image
+                  source={item?.profile}
+                  key={item?.id}
+                  style={styles.usersProfile}
+                />
+              );
+            })}
+          </ScrollView>
+
+          <Heading title="Glovebox" style={{ marginTop: hp(4) }} />
+
+          <ScrollView horizontal style={{ marginLeft: "5%" }}>
+            {licenceBlur?.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={item?.id}
+                  onPress={() => setLicenseModal(true)}
+                >
+                  <Image source={item?.profile} style={styles.licenceBlur} />
+                </TouchableOpacity>
+              );
+            })}
+          </ScrollView>
         </View>
 
-        <InvoiceAction />
-
-        <Appointment date="Wed, 24 Junuary" userProfile={USER} />
-
-        <View style={styles.cardView}>
-          <InfoCard image={JAWAZLOGO} info="0 Dhs" />
-          <InfoCard title="Diesel" info="12.4 Dhs/L" />
-        </View>
-
-        <View style={styles.cardView}>
-          <InfoCard title="Distance" info="0 KM" />
-          <InfoCard title="Expenses" info="1,200 Dhs" />
-        </View>
-
-        <Heading title="My network" style={{marginVertical:10}}/>
-
-        <ScrollView horizontal style={{marginLeft:'5%'}}>
-          {
-            users?.map((item,index)=>{
-              return <Image source={item?.profile} key={item?.id} style={styles.usersProfile} />
-            })
-          }
-        </ScrollView>
-
-        <Heading title="Glovebox" style={{marginTop:hp(4)}}/>
-
-        <ScrollView horizontal style={{marginLeft:'5%'}}>
-          {
-            licenceBlur?.map((item,index)=>{
-              return <Image source={item?.profile} key={item?.id} style={styles.licenceBlur} />
-            })
-          }
-        </ScrollView>
-      </View>
-
-      <GradientButton
+        <GradientButton
           colors={["#FD8802", "#FA6706", "#F6350C"]}
           text="I'm Broken Down"
           style={styles.brokenDown}
           textStyle={styles.brokenDownText}
-          onPress={()=>{}}
+          onPress={() => {}}
         />
 
+        <LicenceModal
+          licenseModal={licenseModal}
+          setLicenseModal={setLicenseModal}
+          validTil="25/2/20"
+          type="License B"
+          onModifierPress={() => {}}
+          onRenewPress={() => {}}
+        />
+        
       </ScrollView>
     </View>
   );
@@ -126,13 +166,13 @@ const Styles = (colors: any) =>
       height: 70,
       width: 70,
       borderRadius: 100,
-      marginRight:10,
+      marginRight: 10,
     },
     licenceBlur: {
       alignSelf: "center",
-      height:hp(30),
-      width:wp(90),
-      marginRight:10,
+      height: hp(30),
+      width: wp(90),
+      marginRight: 10,
     },
     userName: {
       fontSize: 20,
@@ -157,20 +197,20 @@ const Styles = (colors: any) =>
       fontFamily: FONT.SemiBold,
       letterSpacing: 0.4,
     },
-    cardView:{
+    cardView: {
       ...commonStyles.spaceBetween,
-      marginHorizontal:'5%',
-      marginBottom:10,
+      marginHorizontal: "5%",
+      marginBottom: 10,
     },
-    brokenDown:{
-      alignSelf:'center',
-      marginTop:25,
-      marginBottom:hp(11),
-      height:hp(9),
-      borderRadius:12,
+    brokenDown: {
+      alignSelf: "center",
+      marginTop: 25,
+      marginBottom: hp(11),
+      height: hp(9),
+      borderRadius: 12,
     },
-    brokenDownText:{
-      fontFamily:FONT.Bold,
-      fontSize:19,
-    }
+    brokenDownText: {
+      fontFamily: FONT.Bold,
+      fontSize: 19,
+    },
   });

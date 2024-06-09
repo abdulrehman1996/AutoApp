@@ -3,7 +3,6 @@ import {
   Image,
   StyleSheet,
   Text,
-  TextBase,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -127,7 +126,6 @@ const Styles = (colors: any) =>
       borderWidth: 0.5,
       paddingVertical: 10,
       borderColor: "rgba(0,0,0,0.1)",
-      //   ...commonStyles.center,
     },
     cardImage: {
       height: 50,

@@ -17,18 +17,21 @@ interface GradientButtonProps {
   style?: ViewStyle;
   text?: string;
   textStyle?: TextStyle;
-  onPress?:any
+  onPress?:any;
+  icon?:any;
 }
 const GradientButton = ({
   colors = [primaryBlue, primaryBlue],
   style,
   text,
   textStyle,
-  onPress
+  onPress,
+  icon
 }: GradientButtonProps) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <LinearGradient colors={colors} style={[styles.button, style]}>
+        {icon && icon}
         <Text style={[styles.text, textStyle]}>{text}</Text>
       </LinearGradient>
     </TouchableOpacity>
@@ -41,7 +44,8 @@ const styles = StyleSheet.create({
   button: {
     height: hp(6),
     width: "90%",
-    ...commonStyles.center,
+    ...commonStyles.horizontalView,
+    justifyContent:'center',
     paddingVertical: 4,
     borderRadius: 25,
   },

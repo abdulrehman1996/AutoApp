@@ -1,4 +1,6 @@
 import AppointmentWall from "./AppointmentWall";
 import Step from "./Step";
 import ProfilePic from "./ProfilePic";
-export {AppointmentWall,Step,ProfilePic}
+import UserCard from "./UserCard";
+import Row from "./Row";
+export {AppointmentWall,Step,ProfilePic,UserCard,Row}

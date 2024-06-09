@@ -12,13 +12,21 @@ import { hp } from "@/src/utils/Dimension";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useTheme } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 
-import { Image, ScrollView, StyleSheet, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 export default function TabTwoScreen() {
   const { colors } = useTheme();
   const styles = Styles(colors);
+  const router = useRouter();
   const [isSelected, setIsSelected] = useState("Tout");
 
   const handleRowPress = (text: string) => {
@@ -104,9 +112,9 @@ export default function TabTwoScreen() {
             <ProfilePic image={USER} />
             <Step style={styles.md} />
             <Step style={styles.md} />
-            <ProfilePic  />
+            <ProfilePic />
             <Step style={styles.exl} />
-            <ProfilePic  />
+            <ProfilePic />
           </View>
 
           <View style={styles.detailSection}>
@@ -125,23 +133,26 @@ export default function TabTwoScreen() {
               style={{ alignSelf: "center", marginVertical: 10 }}
             />
 
-            <Text style={[styles.semiBold, { marginVertical: 15 }]}>
-              Changing Break Pods
-            </Text>
-            <Text style={styles.border}>
-              a simple break pad change and clearning of surroundings
-            </Text>
+            <TouchableOpacity onPress={() => router.push("screens/service")}>
+              <Text style={[styles.semiBold, { marginVertical: 15 }]}>
+                Changing Break Pods
+              </Text>
+              <Text style={styles.border}>
+                a simple break pad change and clearning of surroundings
+              </Text>
 
-            <Button
-              title="5 Fevrier - 15:30"
-              style={{
-                alignSelf: "center",
-                marginTop: hp(5),
-                marginBottom: 10,
-              }}
-            />
+              <Button
+                title="5 Fevrier - 15:30"
+                style={{
+                  alignSelf: "center",
+                  marginTop: hp(5),
+                  marginBottom: 10,
+                }}
+              />
+            </TouchableOpacity>
 
-            <View style={[styles.spaceBtwUser,{marginVertical:20}]}>
+           
+              <TouchableOpacity onPress={()=>router.push("screens/invoice")} style={[styles.spaceBtwUser,{marginVertical:20}]}>
               <View>
                 <Text style={[styles.semiBold, { marginVertical: 3 }]}>
                   Invoice F 0929
@@ -149,7 +160,7 @@ export default function TabTwoScreen() {
                 <Text style={styles.border}>20 January 15:30</Text>
               </View>
               <Image source={USER} style={styles.userImage} />
-            </View>
+            </TouchableOpacity>
 
             <View style={[styles.spaceBtw, { marginTop: 13 }]}>
               <Text style={styles.mediumBold}>Total</Text>
@@ -168,7 +179,7 @@ export default function TabTwoScreen() {
               <Button title="Accident" style={styles.buttonSm} />
             </View>
 
-            <View style={[styles.spaceBtw,{marginVertical:20}]}>
+            <View style={[styles.spaceBtw, { marginVertical: 20 }]}>
               <View>
                 <Text style={[styles.semiBold, { marginVertical: 3 }]}>
                   AXA Insurance
@@ -176,16 +187,16 @@ export default function TabTwoScreen() {
                 <Text style={styles.border}>7 Jours Du 25 mar au 2 Avr</Text>
               </View>
               <Image source={BLUELOGO} style={styles.userImage} />
-            </View> 
+            </View>
 
             <Image source={MAPIMAGE} style={styles.mapImage} />
 
-            <View style={[styles.spaceBtw, { marginTop: 7,marginBottom:hp(5) }]}>
+            <View
+              style={[styles.spaceBtw, { marginTop: 7, marginBottom: hp(5) }]}
+            >
               <Text style={styles.semiBold}>Carburant</Text>
               <Button title="Personal" style={styles.buttonSm} />
             </View>
-
-
           </View>
         </View>
       </ScrollView>
@@ -258,6 +269,7 @@ const Styles = (colors: any) =>
     steps: {
       // borderWidth:1,
       width: "15%",
+      marginLeft:3,
     },
     detailSection: {
       // borderWidth:1,
@@ -289,11 +301,11 @@ const Styles = (colors: any) =>
       backgroundColor: "rgba(0,0,0,0.1)",
     },
     semiBold: {
-      fontSize:15,
+      fontSize: 15,
       fontFamily: FONT.SemiBold,
     },
     mediumBold: {
-      fontSize:15,
+      fontSize: 15,
       fontFamily: FONT.Medium,
     },
     border: {
@@ -310,10 +322,10 @@ const Styles = (colors: any) =>
       height: 30,
       width: 100,
     },
-    mapImage:{
-      width:'100%',
-      height:100,
-      borderTopLeftRadius:15,
-      borderTopRightRadius:15,
-    }
+    mapImage: {
+      width: "100%",
+      height: 100,
+      borderTopLeftRadius: 15,
+      borderTopRightRadius: 15,
+    },
   });

@@ -9,8 +9,12 @@ import { ThemedView } from "./ThemedView";
 // import { ThemedText } from "./ThemedText";
 // import { Text } from "./Text";
 import Text from "./Text";
+import AppHeader from "./AppHeader";
 export * from './icons/index'
+import RNModal from "./RNModal";
 export {
+  RNModal,
+  AppHeader,
   Button,
   Collapsible,
   ExternalLink,

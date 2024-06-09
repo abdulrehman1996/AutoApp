@@ -16,15 +16,20 @@ import { Entypo } from "@expo/vector-icons";
 interface HeadingProps {
   title?: string;
   style?: ViewStyle;
+  rightView?: React.ReactNode;
 }
-const Heading = ({ style, title,}: HeadingProps) => {
+const Heading = ({ style, title, rightView }: HeadingProps) => {
   const { colors } = useTheme();
   const styles = Styles(colors);
   return (
-    <View style={[styles.container,style]}>
+    <View style={[styles.container, style]}>
       <Text style={styles.text}>{title}</Text>
       <TouchableOpacity style={styles.iconContainer}>
-        <Entypo name="chevron-right" color={colors.primary} size={25} />
+        {rightView ? (
+          rightView
+        ) : (
+          <Entypo name="chevron-right" color={colors.primary} size={25} />
+        )}
       </TouchableOpacity>
     </View>
   );
