@@ -33,175 +33,178 @@ const Page = ()=> {
     setIsSelected(text);
   };
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar translucent={true} />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <LinearGradient colors={["#5879EE", "#0389EA"]} style={styles.header}>
-          <View style={styles.appNameContainer}>
-            <Text style={styles.appName}>App Name</Text>
-            <View style={{ ...commonStyles.horizontalView }}>
-              <MessageIcon />
-              <BellIcon />
-            </View>
-          </View>
-        </LinearGradient>
+    <View>
+      <Text>Hello</Text>
+    </View>
+    // <SafeAreaView style={styles.container}>
+    //   <StatusBar translucent={true} />
+    //   <ScrollView showsVerticalScrollIndicator={false}>
+    //     <LinearGradient colors={["#5879EE", "#0389EA"]} style={styles.header}>
+    //       <View style={styles.appNameContainer}>
+    //         <Text style={styles.appName}>App Name</Text>
+    //         <View style={{ ...commonStyles.horizontalView }}>
+    //           <MessageIcon />
+    //           <BellIcon />
+    //         </View>
+    //       </View>
+    //     </LinearGradient>
 
-        <ScrollView horizontal style={styles.headingRow}>
-          <Text
-            style={[
-              styles.headingText,
-              isSelected == "Tout" && styles.isSelected,
-            ]}
-            onPress={() => handleRowPress("Tout")}
-          >
-            Tout
-          </Text>
-          <Text
-            style={[
-              styles.headingText,
-              isSelected == "Payments" && styles.isSelected,
-            ]}
-            onPress={() => handleRowPress("Payments")}
-          >
-            Payments
-          </Text>
-          <Text
-            style={[
-              styles.headingText,
-              isSelected == "Maintance" && styles.isSelected,
-            ]}
-            onPress={() => handleRowPress("Maintance")}
-          >
-            Maintance
-          </Text>
-          <Text
-            style={[
-              styles.headingText,
-              isSelected == "Trip" && styles.isSelected,
-            ]}
-            onPress={() => handleRowPress("Trip")}
-          >
-            Trip
-          </Text>
-          <Text
-            style={[
-              styles.headingText,
-              isSelected == "ToCarwdut" && styles.isSelected,
-            ]}
-            onPress={() => handleRowPress("Carwd")}
-          >
-            Carwd
-          </Text>
-        </ScrollView>
+    //     <ScrollView horizontal style={styles.headingRow}>
+    //       <Text
+    //         style={[
+    //           styles.headingText,
+    //           isSelected == "Tout" && styles.isSelected,
+    //         ]}
+    //         onPress={() => handleRowPress("Tout")}
+    //       >
+    //         Tout
+    //       </Text>
+    //       <Text
+    //         style={[
+    //           styles.headingText,
+    //           isSelected == "Payments" && styles.isSelected,
+    //         ]}
+    //         onPress={() => handleRowPress("Payments")}
+    //       >
+    //         Payments
+    //       </Text>
+    //       <Text
+    //         style={[
+    //           styles.headingText,
+    //           isSelected == "Maintance" && styles.isSelected,
+    //         ]}
+    //         onPress={() => handleRowPress("Maintance")}
+    //       >
+    //         Maintance
+    //       </Text>
+    //       <Text
+    //         style={[
+    //           styles.headingText,
+    //           isSelected == "Trip" && styles.isSelected,
+    //         ]}
+    //         onPress={() => handleRowPress("Trip")}
+    //       >
+    //         Trip
+    //       </Text>
+    //       <Text
+    //         style={[
+    //           styles.headingText,
+    //           isSelected == "ToCarwdut" && styles.isSelected,
+    //         ]}
+    //         onPress={() => handleRowPress("Carwd")}
+    //       >
+    //         Carwd
+    //       </Text>
+    //     </ScrollView>
 
-        <AppointmentWall date="Wed, 24 Junuary" userProfile={USER} />
+    //     <AppointmentWall date="Wed, 24 Junuary" userProfile={USER} />
 
-        <InvoiceAction />
+    //     <InvoiceAction />
 
-        <View style={styles.userSection}>
-          <Image source={USER} style={styles.userImage} />
-          <Text style={styles.userName}>John Doe</Text>
-        </View>
+    //     <View style={styles.userSection}>
+    //       <Image source={USER} style={styles.userImage} />
+    //       <Text style={styles.userName}>John Doe</Text>
+    //     </View>
 
-        <View style={styles.mainSection}>
-          <View style={styles.steps}>
-            <Step style={styles.sm} />
-            <ProfilePic />
-            <Step style={styles.lg} />
-            <Step style={styles.md} />
-            <ProfilePic image={USER} />
-            <Step style={styles.md} />
-            <Step style={styles.md} />
-            <ProfilePic />
-            <Step style={styles.exl} />
-            <ProfilePic />
-          </View>
+    //     <View style={styles.mainSection}>
+    //       <View style={styles.steps}>
+    //         <Step style={styles.sm} />
+    //         <ProfilePic />
+    //         <Step style={styles.lg} />
+    //         <Step style={styles.md} />
+    //         <ProfilePic image={USER} />
+    //         <Step style={styles.md} />
+    //         <Step style={styles.md} />
+    //         <ProfilePic />
+    //         <Step style={styles.exl} />
+    //         <ProfilePic />
+    //       </View>
 
-          <View style={styles.detailSection}>
-            <View style={styles.spaceBtw}>
-              <View>
-                <Text style={[styles.semiBold, { marginVertical: 3 }]}>
-                  Payment
-                </Text>
-                <Text style={styles.border}>Facture</Text>
-              </View>
-              <Text style={styles.dhs}>130 Dhs</Text>
-            </View>
+    //       <View style={styles.detailSection}>
+    //         <View style={styles.spaceBtw}>
+    //           <View>
+    //             <Text style={[styles.semiBold, { marginVertical: 3 }]}>
+    //               Payment
+    //             </Text>
+    //             <Text style={styles.border}>Facture</Text>
+    //           </View>
+    //           <Text style={styles.dhs}>130 Dhs</Text>
+    //         </View>
 
-            <Button
-              title="5 Fevrier - 15:30"
-              style={{ alignSelf: "center", marginVertical: 10 }}
-              onPress={()=>router.push("(screens)/payment")}
-            />
+    //         <Button
+    //           title="5 Fevrier - 15:30"
+    //           style={{ alignSelf: "center", marginVertical: 10 }}
+    //           onPress={()=>router.push("(screens)/payment")}
+    //         />
 
-            <TouchableOpacity onPress={() => router.push("(screens)/service")}>
-              <Text style={[styles.semiBold, { marginVertical: 15 }]}>
-                Changing Break Pods
-              </Text>
-              <Text style={styles.border}>
-                a simple break pad change and clearning of surroundings
-              </Text>
+    //         <TouchableOpacity onPress={() => router.push("(screens)/service")}>
+    //           <Text style={[styles.semiBold, { marginVertical: 15 }]}>
+    //             Changing Break Pods
+    //           </Text>
+    //           <Text style={styles.border}>
+    //             a simple break pad change and clearning of surroundings
+    //           </Text>
 
-              <Button
-                title="5 Fevrier - 15:30"
-                style={{
-                  alignSelf: "center",
-                  marginTop: hp(5),
-                  marginBottom: 10,
-                }}
-              />
-            </TouchableOpacity>
+    //           <Button
+    //             title="5 Fevrier - 15:30"
+    //             style={{
+    //               alignSelf: "center",
+    //               marginTop: hp(5),
+    //               marginBottom: 10,
+    //             }}
+    //           />
+    //         </TouchableOpacity>
 
            
-              <TouchableOpacity onPress={()=>router.push("(screens)/invoice")} style={[styles.spaceBtwUser,{marginVertical:20}]}>
-              <View>
-                <Text style={[styles.semiBold, { marginVertical: 3 }]}>
-                  Invoice F 0929
-                </Text>
-                <Text style={styles.border}>20 January 15:30</Text>
-              </View>
-              <Image source={USER} style={styles.userImage} />
-            </TouchableOpacity>
+    //           <TouchableOpacity onPress={()=>router.push("(screens)/invoice")} style={[styles.spaceBtwUser,{marginVertical:20}]}>
+    //           <View>
+    //             <Text style={[styles.semiBold, { marginVertical: 3 }]}>
+    //               Invoice F 0929
+    //             </Text>
+    //             <Text style={styles.border}>20 January 15:30</Text>
+    //           </View>
+    //           <Image source={USER} style={styles.userImage} />
+    //         </TouchableOpacity>
 
-            <View style={[styles.spaceBtw, { marginTop: 13 }]}>
-              <Text style={styles.mediumBold}>Total</Text>
-              <Text style={styles.mediumBold}>1200.00 Dhs</Text>
-            </View>
+    //         <View style={[styles.spaceBtw, { marginTop: 13 }]}>
+    //           <Text style={styles.mediumBold}>Total</Text>
+    //           <Text style={styles.mediumBold}>1200.00 Dhs</Text>
+    //         </View>
 
-            <View style={[styles.spaceBtw, { marginTop: 7 }]}>
-              <Text style={styles.mediumBold}>Remaining</Text>
-              <Text style={[styles.mediumBold, { color: "red" }]}>
-                700.00 Dhs
-              </Text>
-            </View>
+    //         <View style={[styles.spaceBtw, { marginTop: 7 }]}>
+    //           <Text style={styles.mediumBold}>Remaining</Text>
+    //           <Text style={[styles.mediumBold, { color: "red" }]}>
+    //             700.00 Dhs
+    //           </Text>
+    //         </View>
 
-            <View style={[styles.spaceBtw, { marginTop: 7 }]}>
-              <Text style={styles.semiBold}>Certificate</Text>
-              <Button title="Accident" style={styles.buttonSm} />
-            </View>
+    //         <View style={[styles.spaceBtw, { marginTop: 7 }]}>
+    //           <Text style={styles.semiBold}>Certificate</Text>
+    //           <Button title="Accident" style={styles.buttonSm} />
+    //         </View>
 
-            <View style={[styles.spaceBtw, { marginVertical: 20 }]}>
-              <View>
-                <Text style={[styles.semiBold, { marginVertical: 3 }]}>
-                  AXA Insurance
-                </Text>
-                <Text style={styles.border}>7 Jours Du 25 mar au 2 Avr</Text>
-              </View>
-              <Image source={BLUELOGO} style={styles.userImage} />
-            </View>
+    //         <View style={[styles.spaceBtw, { marginVertical: 20 }]}>
+    //           <View>
+    //             <Text style={[styles.semiBold, { marginVertical: 3 }]}>
+    //               AXA Insurance
+    //             </Text>
+    //             <Text style={styles.border}>7 Jours Du 25 mar au 2 Avr</Text>
+    //           </View>
+    //           <Image source={BLUELOGO} style={styles.userImage} />
+    //         </View>
 
-            <Image source={MAPIMAGE} style={styles.mapImage} />
+    //         <Image source={MAPIMAGE} style={styles.mapImage} />
 
-            <View
-              style={[styles.spaceBtw, { marginTop: 7, marginBottom: hp(5) }]}
-            >
-              <Text style={styles.semiBold}>Carburant</Text>
-              <Button title="Personal" style={styles.buttonSm} />
-            </View>
-          </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    //         <View
+    //           style={[styles.spaceBtw, { marginTop: 7, marginBottom: hp(5) }]}
+    //         >
+    //           <Text style={styles.semiBold}>Carburant</Text>
+    //           <Button title="Personal" style={styles.buttonSm} />
+    //         </View>
+    //       </View>
+    //     </View>
+    //   </ScrollView>
+    // </SafeAreaView>
   );
 }
 export default Page
