@@ -29,7 +29,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function HomeScreen() {
+const Page = () =>{
   const { colors } = useTheme();
   const styles = Styles(colors);
   const router = useRouter();
@@ -37,101 +37,102 @@ export default function HomeScreen() {
   const [userModal, setUserModal] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar translucent={true} />
-      <ScrollView>
-        <View style={styles.header}>
-          <MessageIcon theme />
-          <BellIcon theme />
-        </View>
+    <View>Hello</View>
+    // <SafeAreaView style={styles.container}>
+    //   <StatusBar translucent={true} />
+    //   <ScrollView>
+    //     <View style={styles.header}>
+    //       <MessageIcon theme />
+    //       <BellIcon theme />
+    //     </View>
 
-        <Image source={LEFTCAR} style={styles.carImage} />
+    //     <Image source={LEFTCAR} style={styles.carImage} />
 
-        <View style={styles.userSection}>
-          <Image source={USER} style={styles.userProfile} />
+    //     <View style={styles.userSection}>
+    //       <Image source={USER} style={styles.userProfile} />
 
-          <Text style={styles.userName}>Saif Din</Text>
+    //       <Text style={styles.userName}>Saif Din</Text>
 
-          <View style={styles.horizontalView}>
-            <Text style={styles.totalDhs}>5,394 Dhs</Text>
-            <View style={styles.plusIcon}>
-              <Feather name="plus" color={colors.primary} size={20} />
-            </View>
-          </View>
+    //       <View style={styles.horizontalView}>
+    //         <Text style={styles.totalDhs}>5,394 Dhs</Text>
+    //         <View style={styles.plusIcon}>
+    //           <Feather name="plus" color={colors.primary} size={20} />
+    //         </View>
+    //       </View>
 
-          <InvoiceAction />
+    //       <InvoiceAction />
 
-          <Appointment date="Wed, 24 Junuary" userProfile={USER} />
+    //       <Appointment date="Wed, 24 Junuary" userProfile={USER} />
 
-          <View style={styles.cardView}>
-            <InfoCard
-              image={JAWAZLOGO}
-              info="0 Dhs"
-              onPress={() => router.navigate("screens/jawazbalance")}
-            />
-            <InfoCard title="Diesel" info="12.4 Dhs/L" />
-          </View>
+    //       <View style={styles.cardView}>
+    //         <InfoCard
+    //           image={JAWAZLOGO}
+    //           info="0 Dhs"
+    //           onPress={() => router.navigate("(screens)/jawazbalance")}
+    //         />
+    //         <InfoCard title="Diesel" info="12.4 Dhs/L" />
+    //       </View>
 
-          <View style={styles.cardView}>
-            <InfoCard title="Distance" info="0 KM" />
-            <InfoCard title="Expenses" info="1,200 Dhs" />
-          </View>
+    //       <View style={styles.cardView}>
+    //         <InfoCard title="Distance" info="0 KM" />
+    //         <InfoCard title="Expenses" info="1,200 Dhs" />
+    //       </View>
 
-          <Heading title="My network" style={{ marginVertical: 10 }} />
+    //       <Heading title="My network" style={{ marginVertical: 10 }} />
 
-          <ScrollView horizontal style={{ marginLeft: "5%" }}>
-            {users?.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  key={item?.id}
-                  onPress={() => setUserModal(true)}
-                >
-                  <Image source={item?.profile} style={styles.usersProfile} />
-                </TouchableOpacity>
-              );
-            })}
-          </ScrollView>
+    //       <ScrollView horizontal style={{ marginLeft: "5%" }}>
+    //         {users?.map((item, index) => {
+    //           return (
+    //             <TouchableOpacity
+    //               key={item?.id}
+    //               onPress={() => setUserModal(true)}
+    //             >
+    //               <Image source={item?.profile} style={styles.usersProfile} />
+    //             </TouchableOpacity>
+    //           );
+    //         })}
+    //       </ScrollView>
 
-          <Heading title="Glovebox" style={{ marginTop: hp(4) }} />
+    //       <Heading title="Glovebox" style={{ marginTop: hp(4) }} />
 
-          <ScrollView horizontal style={{ marginLeft: "5%" }}>
-            {licenceBlur?.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  key={item?.id}
-                  onPress={() => setLicenseModal(true)}
-                >
-                  <Image source={item?.profile} style={styles.licenceBlur} />
-                </TouchableOpacity>
-              );
-            })}
-          </ScrollView>
-        </View>
+    //       <ScrollView horizontal style={{ marginLeft: "5%" }}>
+    //         {licenceBlur?.map((item, index) => {
+    //           return (
+    //             <TouchableOpacity
+    //               key={item?.id}
+    //               onPress={() => setLicenseModal(true)}
+    //             >
+    //               <Image source={item?.profile} style={styles.licenceBlur} />
+    //             </TouchableOpacity>
+    //           );
+    //         })}
+    //       </ScrollView>
+    //     </View>
 
-        <GradientButton
-          colors={redShade}
-          text="I'm Broken Down"
-          style={styles.brokenDown}
-          textStyle={styles.brokenDownText}
-          onPress={() => {}}
-        />
-        {/* </View> */}
+    //     <GradientButton
+    //       colors={redShade}
+    //       text="I'm Broken Down"
+    //       style={styles.brokenDown}
+    //       textStyle={styles.brokenDownText}
+    //       onPress={() => {}}
+    //     />
+    //     {/* </View> */}
 
-        <UserInfoModal userModal={userModal} setUserModal={setUserModal} />
+    //     <UserInfoModal userModal={userModal} setUserModal={setUserModal} />
 
-        <LicenceModal
-          licenseModal={licenseModal}
-          setLicenseModal={setLicenseModal}
-          validTil="25/2/20"
-          type="License B"
-          onModifierPress={() => {}}
-          onRenewPress={() => {}}
-        />
-      </ScrollView>
-    </SafeAreaView>
+    //     <LicenceModal
+    //       licenseModal={licenseModal}
+    //       setLicenseModal={setLicenseModal}
+    //       validTil="25/2/20"
+    //       type="License B"
+    //       onModifierPress={() => {}}
+    //       onRenewPress={() => {}}
+    //     />
+    //   </ScrollView>
+    // </SafeAreaView>
   );
 }
-
+export default Page;
 const Styles = (colors: any) =>
   StyleSheet.create({
     container: {

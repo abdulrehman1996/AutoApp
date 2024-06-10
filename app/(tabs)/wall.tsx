@@ -9,7 +9,6 @@ import {
   Step,
 } from "@/src/feature/walls/components";
 import { hp } from "@/src/utils/Dimension";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { useTheme } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
@@ -24,7 +23,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-export default function Walls() {
+const Page = ()=> {
   const { colors } = useTheme();
   const styles = Styles(colors);
   const router = useRouter();
@@ -132,10 +131,10 @@ export default function Walls() {
             <Button
               title="5 Fevrier - 15:30"
               style={{ alignSelf: "center", marginVertical: 10 }}
-              onPress={()=>router.push("screens/payment")}
+              onPress={()=>router.push("(screens)/payment")}
             />
 
-            <TouchableOpacity onPress={() => router.push("screens/service")}>
+            <TouchableOpacity onPress={() => router.push("(screens)/service")}>
               <Text style={[styles.semiBold, { marginVertical: 15 }]}>
                 Changing Break Pods
               </Text>
@@ -154,7 +153,7 @@ export default function Walls() {
             </TouchableOpacity>
 
            
-              <TouchableOpacity onPress={()=>router.push("screens/invoice")} style={[styles.spaceBtwUser,{marginVertical:20}]}>
+              <TouchableOpacity onPress={()=>router.push("(screens)/invoice")} style={[styles.spaceBtwUser,{marginVertical:20}]}>
               <View>
                 <Text style={[styles.semiBold, { marginVertical: 3 }]}>
                   Invoice F 0929
@@ -205,7 +204,7 @@ export default function Walls() {
     </SafeAreaView>
   );
 }
-
+export default Page
 const Styles = (colors: any) =>
   StyleSheet.create({
     container: {

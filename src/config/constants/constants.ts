@@ -54,7 +54,7 @@ export const FONT = {
     },
     shadow_2: {
       elevation: 6,
-      shadowColor: 'rgba(0,0,0,0.4)',
+      shadowColor: 'rgba(0,0,0,0.13)',
       shadowOffset: {
         width: 0,
         height: 1,

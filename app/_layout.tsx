@@ -36,19 +36,19 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
-          name="screens/invoice"
+          name="(screens)/invoice"
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="screens/jawazbalance"
+          name="(screens)/jawazbalance"
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="screens/service"
+          name="(screens)/service"
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="screens/payment"
+          name="(screens)/payment"
           options={{ headerShown: false }}
         />
         <Stack.Screen name="+not-found" />

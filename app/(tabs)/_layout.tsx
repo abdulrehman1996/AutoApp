@@ -30,7 +30,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="walls"
+        name="wall"
         options={{
           title: "Walls",
           tabBarIcon: ({ color, focused }) => (

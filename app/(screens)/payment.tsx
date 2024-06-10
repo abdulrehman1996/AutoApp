@@ -57,7 +57,7 @@ const Payment = () => {
       <Text style={[styles.invoice, { marginVertical: hp(4) }]}>Document</Text>
 
       <TouchableOpacity
-        onPress={() => router.push("screens/invoice")}
+        onPress={() => router.push("(screens)/invoice")}
         style={[styles.spaceBtwUser, { marginBottom: 20 }]}
       >
         <View>

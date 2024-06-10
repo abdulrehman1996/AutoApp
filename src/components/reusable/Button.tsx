@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
       {loading ? (
         <ActivityIndicator />
       ) : (
-        <Text style={[styles.title, textStyle]}>{title}</Text>
+        <Text  style={[styles.title, textStyle]}>{title}</Text>
       )}
     </TouchableOpacity>
   );
@@ -60,5 +60,6 @@ const Styles = (colors: any) =>
     title: {
       color: colors.background,
       fontFamily: FONT.Medium,
+      pointerEvents:"none"
     },
   });

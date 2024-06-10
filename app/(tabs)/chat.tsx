@@ -16,10 +16,12 @@ import { AntDesign, Entypo, Feather, Ionicons } from "@expo/vector-icons";
 import { GENIE } from "@/src/asset";
 import { services } from "@/src/asset/dummyData";
 import { white } from "@/src/config/constants/Colors";
+import { useRouter } from "expo-router";
 
-export default function Chat() {
+const Page = ()=> {
   const { colors } = useTheme();
   const styles = Styles(colors);
+  const router = useRouter()
   return (
     <View style={styles.container}>
       <ScrollView style={{flex:1}}>
@@ -28,6 +30,7 @@ export default function Chat() {
             <AntDesign name="sharealt" color={colors.background} size={14} />
           </TouchableOpacity>
           <TouchableOpacity
+          onPress={()=>router.back()}
             style={[styles.iconStyles, { backgroundColor: colors.background }]}
           >
             <Entypo name="cross" color={"#5879EE"} size={14} />
@@ -90,7 +93,7 @@ export default function Chat() {
     </View>
   );
 };
-
+export default Page
 
 const Styles = (colors: any) =>
   StyleSheet.create({

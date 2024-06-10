@@ -30,7 +30,7 @@ const GradientButton = ({
 }: GradientButtonProps) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <LinearGradient colors={colors} style={[styles.button, style]}>
+      <LinearGradient colors={colors} style={[styles.button, style]} pointerEvents="none">
         {icon && icon}
         <Text style={[styles.text, textStyle]}>{text}</Text>
       </LinearGradient>
