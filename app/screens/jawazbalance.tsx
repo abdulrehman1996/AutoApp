@@ -7,6 +7,7 @@ import { FONT, commonStyles } from "@/src/config/constants/constants";
 import { useTheme } from "@react-navigation/native";
 import GradientButton from "@/src/components/reusable/GradientButton";
 import { Ionicons } from "@expo/vector-icons";
+import { blueShade, darkBlueShade } from "@/src/config/constants/Colors";
 
 const jawazbalance = () => {
   const { colors } = useTheme();
@@ -28,7 +29,7 @@ const jawazbalance = () => {
               <Text style={{ color: "red", fontFamily: FONT.Medium }}>low</Text>
             </Text>
             <GradientButton
-              colors={["#30D2D5", "#42D6AA", "#28DBA5"]}
+              colors={blueShade}
               text="refresh"
               style={styles.refreshButton}
               onPress={() => {}}
@@ -37,23 +38,21 @@ const jawazbalance = () => {
                   name="refresh-sharp"
                   color={colors.background}
                   size={15}
-                  style={{marginRight:5,}}
+                  style={{ marginRight: 5 }}
                 />
               }
             />
-
           </View>
-            <Text style={styles.textBold}>89.00 Dhs</Text>
-            <Text style={styles.textSM}>Updated on 12th February 16:30</Text>
+          <Text style={styles.textBold}>89.00 Dhs</Text>
+          <Text style={styles.textSM}>Updated on 12th February 16:30</Text>
 
-            <GradientButton
-          colors={["#5879EE", "#819CFF", "#5879EE"]}
-          text="I'm Broken Down"
-          style={styles.rechargeJawaz}
-          textStyle={styles.rechargeJawazText}
-          onPress={() => {}}
-        />
-
+          <GradientButton
+            colors={darkBlueShade}
+            text="Recharge Jawaz"
+            style={styles.rechargeJawaz}
+            textStyle={styles.rechargeJawazText}
+            onPress={() => {}}
+          />
         </View>
       </ScrollView>
     </View>
@@ -88,7 +87,7 @@ const Styles = (colors: any) =>
     },
     bottomContainer: {
       paddingTop: hp(8),
-      paddingHorizontal:'5%',
+      paddingHorizontal: "5%",
       backgroundColor: colors.background,
     },
     horizontalView: {
@@ -98,19 +97,18 @@ const Styles = (colors: any) =>
       fontFamily: FONT.Medium,
     },
     refreshButton: {
-      width:100,
-      marginLeft:15,
+      width: 100,
+      marginLeft: 15,
     },
-    textBold:{
-      fontFamily:FONT.Bold,
-      fontSize:30,
-      marginVertical:10,
-      color:colors.primary,
-      letterSpacing:1,
+    textBold: {
+      fontFamily: FONT.Bold,
+      fontSize: 30,
+      marginVertical: 10,
+      color: colors.primary,
+      letterSpacing: 1,
     },
-    textSM:{
-      color:"#9B9B9B",
-
+    textSM: {
+      color: "#9B9B9B",
     },
     rechargeJawaz: {
       alignSelf: "center",

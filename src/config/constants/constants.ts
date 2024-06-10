@@ -53,13 +53,13 @@ export const FONT = {
       shadowRadius: 6.27,
     },
     shadow_2: {
-      elevation: 2,
-      shadowColor: black,
+      elevation: 6,
+      shadowColor: 'rgba(0,0,0,0.4)',
       shadowOffset: {
         width: 0,
         height: 1,
       },
-      shadowOpacity: 0.2,
+      shadowOpacity:1,
       shadowRadius: 1.41,
     },
     noPadding: {

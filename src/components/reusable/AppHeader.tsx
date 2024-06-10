@@ -9,9 +9,10 @@ import React from "react";
 import Text from "./Text";
 import { hp } from "@/src/utils/Dimension";
 import { AntDesign } from "@expo/vector-icons";
-import { useTheme } from "@react-navigation/native";
+import { useRoute, useTheme } from "@react-navigation/native";
 import { primaryBlue } from "@/src/config/constants/Colors";
 import { FONT } from "@/src/config/constants/constants";
+import { useRouter } from "expo-router";
 
 interface AppHeaderProps {
   title?: string;
@@ -30,11 +31,12 @@ const AppHeader = ({
   titleStyle,
   style,
 }: AppHeaderProps) => {
+  const router  = useRouter()
   const { colors } = useTheme();
   return (
     <View style={[styles.header, style]}>
       {LeftComp ? (
-        <TouchableOpacity style={[styles.iconStyles,{backgroundColor:"yellow"}]}>
+        <TouchableOpacity onPress={()=>router.back()} style={[styles.iconStyles,{backgroundColor:"yellow"}]}>
           <AntDesign name="arrowleft" color={colors.primary} size={14} />
         </TouchableOpacity>
       ) : (

@@ -19,14 +19,15 @@ import {
 import { hp, wp } from "@/src/utils/Dimension";
 import { USER } from "@/src/asset";
 import { AntDesign } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Service = () => {
   const { colors } = useTheme();
   const styles = Styles(colors);
   return (
-    <View style={styles.container}>
-      <AppHeader LeftComp RightComp title="Service" />
+    <SafeAreaView style={styles.container}>
       <ScrollView>
+      <AppHeader LeftComp RightComp title="Service" />
         <View style={styles.upperContainer}>
           <UserCard />
         </View>
@@ -143,7 +144,7 @@ const Service = () => {
           </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

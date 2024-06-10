@@ -36,7 +36,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <MaterialCommunityIcons
               name={focused ? "signal-cellular-3" : "signal-cellular-outline"}
-              color={focused ?colors.primary : "#C4CEF3"}
+              color={focused ? colors.primary : "#C4CEF3"}
               size={30}
             />
           ),

@@ -34,7 +34,7 @@ const Styles = (colors: any) =>
     cardView: {
       width: "45%",
       height: hp(12),
-      ...commonStyles.shadow_3,
+      ...commonStyles.shadow_2,
       backgroundColor:'white',
       borderRadius: 10,
       ...commonStyles.center,

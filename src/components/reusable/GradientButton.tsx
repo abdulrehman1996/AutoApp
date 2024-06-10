@@ -14,7 +14,7 @@ import { hp } from "@/src/utils/Dimension";
 
 interface GradientButtonProps {
   colors?: any;
-  style?: ViewStyle;
+  style?: ViewStyle | any;
   text?: string;
   textStyle?: TextStyle;
   onPress?:any;

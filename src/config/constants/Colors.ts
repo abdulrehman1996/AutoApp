@@ -28,3 +28,9 @@ export const yellow = '#FDC309';
 export const red = '#DA291C';
 export const navy = '#005082';
 export const purple = '#855ce5';
+
+
+export const redShade = ["#FD8802", "#FA6706", "#F6350C"];
+export const blueShade = ["#30D2D5", "#42D6AA", "#28DBA5"]
+export const blackShade = ["rgba(0,0,0,0.05)", "#ffffff"]
+export const darkBlueShade = ["#5879EE", "#819CFF", "#5879EE"]

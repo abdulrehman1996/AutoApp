@@ -8,6 +8,7 @@ import { FONT, commonStyles } from "@/src/config/constants/constants";
 import { LICENCE, LICENCEBLUR } from "../assets";
 import { hp, wp } from "@/src/utils/Dimension";
 import GradientButton from "@/src/components/reusable/GradientButton";
+import { blackShade, blueShade } from "@/src/config/constants/Colors";
 
 interface LicenceModalProps {
   licenseModal: boolean;
@@ -65,7 +66,7 @@ const LicenceModal = ({
         </View>
 
         <GradientButton
-          colors={["#30D2D5", "#42D6AA", "#28DBA5"]}
+          colors={blueShade}
           text="Renew my License"
           textStyle={{fontSize:17}}
           style={styles.button}
@@ -73,7 +74,7 @@ const LicenceModal = ({
         />
         
         <GradientButton
-          colors={["rgba(0,0,0,0.05)", "#ffffff",]}
+          colors={blackShade}
           text="Modifier"
           textStyle={{fontSize:17,color:"yellow"}}
           style={[styles.button,{marginTop:13,borderColor:'yellow',borderWidth:2,}]}

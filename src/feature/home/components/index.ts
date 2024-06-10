@@ -3,4 +3,5 @@ import Appointment from "./Appointment";
 import InfoCard from "./InfoCard";
 import Heading from "./Heading";
 import LicenceModal from "./LicenceModal";
-export {InvoiceAction,Appointment,InfoCard,Heading,LicenceModal}
+import UserInfoModal from "./UserInfoModal";
+export {InvoiceAction,Appointment,InfoCard,Heading,LicenceModal,UserInfoModal}

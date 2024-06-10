@@ -5,20 +5,22 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { AppHeader, Text } from "@/src/components";
 import { USER } from "@/src/asset";
-import { hp } from "@/src/utils/Dimension";
+import { hp, wp } from "@/src/utils/Dimension";
 import { FONT, commonStyles } from "@/src/config/constants/constants";
 import { AntDesign, EvilIcons, Feather, Ionicons } from "@expo/vector-icons";
-import { primaryBlue } from "@/src/config/constants/Colors";
-import { Row } from "@/src/feature/walls/components";
+import { blueShade, primaryBlue, redShade } from "@/src/config/constants/Colors";
+import { Row, Signature } from "@/src/feature/walls/components";
+import GradientButton from "@/src/components/reusable/GradientButton";
 
 const Invoice = () => {
+  const [showModal, setShowModal] = useState(false)
   return (
     <View style={styles.container}>
-      <AppHeader LeftComp RightComp title="Invoice FL-909909" />
       <ScrollView>
+      <AppHeader LeftComp RightComp title="Invoice FL-909909" />
         <View style={styles.upperSection}>
           <Image style={styles.userImage} source={USER} />
 
@@ -86,14 +88,59 @@ const Invoice = () => {
             <Row title="Sub Total" value="0.00Dhs" theme />
           </View>
 
-          <View style={styles.borderContainer}>
+          <View style={[styles.borderContainer]}>
             <Row title="Oil Filter Avista MO052012" value="1 x 250 Dhs" theme />
             <Row title="TAX" value="1 x 250 Dhs" />
             <Row title="Discount" value="0.00 Dhs" />
             <Row title="Sub Total" value="0.00Dhs" theme />
           </View>
+          <View
+            style={[styles.borderContainer, { borderColor: "black" }]}
+          ></View>
 
+          <View style={styles.lowerContainer}>
+            <Row
+              title="Sub Total"
+              value="800 Dhs"
+              theme
+              textStyle={styles.textStyle}
+            />
+            <Row
+              title="Sub Total"
+              value="150.00 Dhs"
+              theme
+              textStyle={styles.textStyle}
+            />
+            <Row
+              title="Sub Total"
+              value="1740.00 Dhs"
+              theme
+              textStyle={styles.textLg}
+            />
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <View style={{backgroundColor:'#681700', paddingBottom:7, borderRadius:6}}>
+              <GradientButton
+                colors={redShade}
+                text="Signer"
+                style={[styles.button, { width: wp(36) }]}
+                onPress={() => setShowModal(true)}
+              />
+            </View>
+            <View style={{backgroundColor:'#681700', paddingBottom:7, borderRadius:6}}>
+
+            <GradientButton
+              colors={blueShade}
+              style={styles.button}
+              text="Rejeter"
+              onPress={()=>{}}
+            />
+          </View>
+          </View>
         </View>
+
+        <Signature showModal={showModal} setShowModal={setShowModal} />
       </ScrollView>
     </View>
   );
@@ -119,7 +166,6 @@ const styles = StyleSheet.create({
   bottomSection: {
     backgroundColor: "white",
     paddingTop: hp(2),
-    paddingHorizontal: "5%",
   },
   horizontalView: {
     ...commonStyles.horizontalView,
@@ -184,7 +230,8 @@ const styles = StyleSheet.create({
   },
   bottomHeader: {
     ...commonStyles.spaceBetween,
-    marginBottom:hp(2)
+    marginBottom: hp(2),
+    paddingHorizontal: "5%",
   },
   invoice: {
     fontFamily: FONT.SemiBold,
@@ -202,8 +249,35 @@ const styles = StyleSheet.create({
   borderContainer: {
     borderTopWidth: 5,
     // borderBottomWidth: 5,
-    borderColor: "#EDEEF6",
+    borderTopColor: "#EDEEF6",
     borderStyle: "dotted",
     paddingVertical: 10,
+    paddingHorizontal: "5%",
   },
+  lowerContainer: {
+    paddingVertical: 10,
+    paddingHorizontal: "5%",
+    backgroundColor: "#F1EEEE",
+  },
+  textStyle: {
+    color: "#545454",
+  },
+  textLg: {
+    marginVertical: 10,
+    fontSize: 20,
+    fontFamily: FONT.SemiBold,
+  },
+  buttonContainer: {
+    ...commonStyles.spaceBetween,
+    paddingHorizontal: '5%',
+    marginTop: hp(4),
+    marginBottom: hp(4),
+  },
+  button: {
+    height: 60,
+    borderRadius: 6,
+    borderLeftWidth:0,
+    borderRightWidth:0,
+    width: wp(48),
+  }
 });

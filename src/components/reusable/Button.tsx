@@ -4,7 +4,8 @@ import {
   TouchableOpacityProps,
   StyleProp,
   ViewStyle,
-  StyleSheet
+  StyleSheet,
+  TextStyle,
 } from "react-native";
 import React, { memo } from "react";
 import Text from "./Text";
@@ -17,6 +18,7 @@ interface ButtonProps extends TouchableOpacityProps {
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
   loading?: boolean;
+  textStyle?: TextStyle;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,17 +27,21 @@ const Button: React.FC<ButtonProps> = ({
   style,
   disabled,
   loading,
+  textStyle,
 }) => {
-  const {colors} = useTheme();
-  const styles = Styles(colors)
+  const { colors } = useTheme();
+  const styles = Styles(colors);
   return (
     <TouchableOpacity
-      activeOpacity={0.7}
       style={[styles.button, style]}
       onPress={onPress}
       disabled={disabled}
     >
-      {loading ? <ActivityIndicator /> : <Text style={styles.title}>{title}</Text>}
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <Text style={[styles.title, textStyle]}>{title}</Text>
+      )}
     </TouchableOpacity>
   );
 };
@@ -44,15 +50,15 @@ export default memo(Button);
 
 const Styles = (colors: any) =>
   StyleSheet.create({
-  button:{
-    height:40,
-    backgroundColor:colors.primary,
-    ...commonStyles.center,
-    borderRadius:15,
-    width:150,
-  },
-  title:{
-    color:colors.background,
-    fontFamily:FONT.Medium
-  }
-});
+    button: {
+      height: 40,
+      backgroundColor: colors.primary,
+      ...commonStyles.center,
+      borderRadius: 15,
+      width: 150,
+    },
+    title: {
+      color: colors.background,
+      fontFamily: FONT.Medium,
+    },
+  });

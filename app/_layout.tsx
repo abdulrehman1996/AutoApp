@@ -47,6 +47,10 @@ export default function RootLayout() {
           name="screens/service"
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="screens/payment"
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>

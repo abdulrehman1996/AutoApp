@@ -23,6 +23,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 export default function TabTwoScreen() {
   const { colors } = useTheme();
   const styles = Styles(colors);
@@ -33,9 +34,9 @@ export default function TabTwoScreen() {
     setIsSelected(text);
   };
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar translucent={true} />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <LinearGradient colors={["#5879EE", "#0389EA"]} style={styles.header}>
           <View style={styles.appNameContainer}>
             <Text style={styles.appName}>App Name</Text>
@@ -131,6 +132,7 @@ export default function TabTwoScreen() {
             <Button
               title="5 Fevrier - 15:30"
               style={{ alignSelf: "center", marginVertical: 10 }}
+              onPress={()=>router.push("screens/payment")}
             />
 
             <TouchableOpacity onPress={() => router.push("screens/service")}>
@@ -200,7 +202,7 @@ export default function TabTwoScreen() {
           </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

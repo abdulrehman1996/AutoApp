@@ -1,7 +1,7 @@
 import { USER } from "@/src/asset";
 import { BellIcon, MessageIcon, RNModal, Text } from "@/src/components";
 import GradientButton from "@/src/components/reusable/GradientButton";
-import { white } from "@/src/config/constants/Colors";
+import { redShade, white } from "@/src/config/constants/Colors";
 import { FONT, commonStyles } from "@/src/config/constants/constants";
 import { JAWAZLOGO, LEFTCAR } from "@/src/feature/home/assets";
 import {
@@ -10,6 +10,7 @@ import {
   InfoCard,
   InvoiceAction,
   LicenceModal,
+  UserInfoModal,
 } from "@/src/feature/home/components";
 import { licenceBlur, users } from "@/src/feature/home/dummyData/data";
 import { hp, wp } from "@/src/utils/Dimension";
@@ -26,15 +27,17 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   const { colors } = useTheme();
   const styles = Styles(colors);
   const router = useRouter();
   const [licenseModal, setLicenseModal] = useState(false);
+  const [userModal, setUserModal] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar translucent={true} />
       <ScrollView>
         <View style={styles.header}>
@@ -79,11 +82,12 @@ export default function HomeScreen() {
           <ScrollView horizontal style={{ marginLeft: "5%" }}>
             {users?.map((item, index) => {
               return (
-                <Image
-                  source={item?.profile}
+                <TouchableOpacity
                   key={item?.id}
-                  style={styles.usersProfile}
-                />
+                  onPress={() => setUserModal(true)}
+                >
+                  <Image source={item?.profile} style={styles.usersProfile} />
+                </TouchableOpacity>
               );
             })}
           </ScrollView>
@@ -105,12 +109,15 @@ export default function HomeScreen() {
         </View>
 
         <GradientButton
-          colors={["#FD8802", "#FA6706", "#F6350C"]}
+          colors={redShade}
           text="I'm Broken Down"
           style={styles.brokenDown}
           textStyle={styles.brokenDownText}
           onPress={() => {}}
         />
+        {/* </View> */}
+
+        <UserInfoModal userModal={userModal} setUserModal={setUserModal} />
 
         <LicenceModal
           licenseModal={licenseModal}
@@ -120,9 +127,8 @@ export default function HomeScreen() {
           onModifierPress={() => {}}
           onRenewPress={() => {}}
         />
-        
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -141,7 +147,7 @@ const Styles = (colors: any) =>
     },
     carImage: {
       width: "90%",
-      height: 99,
+      height: 120,
       marginTop: hp(5),
       alignSelf: "center",
     },
@@ -208,6 +214,10 @@ const Styles = (colors: any) =>
       marginBottom: hp(11),
       height: hp(9),
       borderRadius: 12,
+      borderBottomWidth:3,
+      borderBottomColor:"#681700",
+      borderBottomLeftRadius:0,
+      borderBottomRightRadius:0,
     },
     brokenDownText: {
       fontFamily: FONT.Bold,

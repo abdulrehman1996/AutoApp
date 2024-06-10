@@ -5,6 +5,7 @@ import { FONT, commonStyles } from "@/src/config/constants/constants";
 import { Text } from "@/src/components";
 import GradientButton from "@/src/components/reusable/GradientButton";
 import { wp } from "@/src/utils/Dimension";
+import { blueShade } from "@/src/config/constants/Colors";
 
 interface AppointmentProps {
   date?: string;
@@ -20,7 +21,7 @@ const Appointment = ({ date, userProfile }: AppointmentProps) => {
         <Text style={styles.date}>{date}</Text>
 
         <GradientButton
-          colors={["#30D2D5", "#42D6AA", "#28DBA5"]}
+          colors={blueShade}
           text="View appointement"
           style={styles.button}
           onPress={()=>{}}
