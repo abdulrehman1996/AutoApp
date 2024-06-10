@@ -17,7 +17,7 @@ import { GENIE } from "@/src/asset";
 import { services } from "@/src/asset/dummyData";
 import { white } from "@/src/config/constants/Colors";
 
-const Chat = () => {
+export default function Chat() {
   const { colors } = useTheme();
   const styles = Styles(colors);
   return (
@@ -91,7 +91,6 @@ const Chat = () => {
   );
 };
 
-export default Chat;
 
 const Styles = (colors: any) =>
   StyleSheet.create({

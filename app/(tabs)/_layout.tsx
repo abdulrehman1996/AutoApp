@@ -9,7 +9,7 @@ import { useTheme } from "@react-navigation/native";
 export default function TabLayout() {
   const {colors} = useTheme()
   return (
-    <Tabs screenOptions={{headerShown:false}} initialRouteName="chat">
+    <Tabs screenOptions={{headerShown:false}}>
       <Tabs.Screen
         name="index"
         options={{

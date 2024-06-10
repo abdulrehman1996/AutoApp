@@ -24,7 +24,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-export default function TabTwoScreen() {
+export default function Walls() {
   const { colors } = useTheme();
   const styles = Styles(colors);
   const router = useRouter();
